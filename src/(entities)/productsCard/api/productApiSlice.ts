@@ -22,16 +22,25 @@ interface Data{
     total: number;
 }
 
+interface ListResponse<T> {
+    page: number
+    per_page: number
+    total: number
+    total_pages: number
+    products: T[]
+  }
 
 
 export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({baseUrl:"https://dummyjson.com/"}),
     endpoints:(builder) => ({
-        getAllProducts: builder.query<Data, number>({
-            query:() => 'products',
+        getAllProducts: builder.query<Data, number | void>({
+            query:(counts = 10) => `products?limit=12&skip=${counts}`,
         }),
     }),
 });
 
+
+export default productsApi.reducer
 export const {useGetAllProductsQuery} = productsApi;
