@@ -1,5 +1,6 @@
 'use client'
 import Favor from '@/entities/Favor/favor'
+import { ModalCart } from '@/features/modalCart'
 import ModalFav from '@/features/modalFavourite/ModalFav'
 import { Header } from '@/widgets/header'
 import { Products } from '@/widgets/products'
@@ -12,6 +13,7 @@ const HomePage = () => {
     <div>
         <Header isFavOpen={isFavOpen} setIsFavOpen={setIsFavOpen} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
         {isFavOpen ? <ModalFav isFavOpen={isFavOpen} setIsFavOpen={setIsFavOpen}/> : ""}
+        {isCartOpen ? <ModalCart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/> : ""}
         <Products/>
         <Favor></Favor>
     </div>

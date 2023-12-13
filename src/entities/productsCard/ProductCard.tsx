@@ -44,20 +44,31 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
         }
         <img src={image} alt="" className='h-60 min-h-fit m-auto'/>
       </div>
-      <h4 className='pt-5'>{name}</h4>
-      <p className='w-60 pt-5'>{desc}</p>
-      <div className='pt-5  '>
-        <div className='flex'>
+      <div className='text-center'>
+        <h4 className='pt-5'>{name}</h4>
+        <p className='pt-5 w-80 '>{desc}</p>
+      </div>
+      <div className='pt-5 text-center'>
+        <div className='flex justify-center'>
           <p>price:</p>
           <p className='pl-5'>{price}</p>
           <p>$</p>
         </div>
-        <div className='flex'>
+        <div className='flex justify-center'>
           <p>rating:</p>
           <p className='pl-5'>{rate}</p>
         </div>
       </div>
-      {isCart ? <button onClick={() => dispatch(delCart(currentProd), setisCart(false))}>Delete from Cart</button> : <button onClick={() => dispatch(addCart(currentProd),setisCart(true))}>Add to Cart</button>}
+      <div className='text-center my-2'>
+        {isCart ? 
+          <button className="py-2 px-10 rounded-full bg-slate-600" onClick={() => dispatch(delCart(currentProd), setisCart(false))}>
+            Delete from Cart
+          </button> : 
+          <button className="py-2 px-10 bg-orange-600 rounded-full" onClick={() => dispatch(addCart(currentProd),setisCart(true))}>
+            Add to Cart
+          </button>}
+      </div>
+      
       
       
       {/* {isFav ? <button onClick={addToCart}>Delete to Cart</button> : <button onClick={() => dispatch(addFav(currentProd))}>Add to Cart</button>} */}
