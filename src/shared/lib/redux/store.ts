@@ -1,13 +1,15 @@
-import favReducer from '@/(features)/addToFavourite/addToFavourite'
-import productsReducer from '@/(entities)/productsCard/api/productApiSlice';
+import favReducer from '@/features/addToFavourite/addToFavourite'
+import cartReducer from '@/features/addToCart/addToCart'
+import productsReducer from '@/entities/productsCard/api/productApiSlice';
 
 import { configureStore } from '@reduxjs/toolkit'
-import { productsApi } from '@/(entities)/productsCard/api/productApiSlice';
+import { productsApi } from '@/entities/productsCard/api/productApiSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 export const store = configureStore ({
   reducer:{
     favReducer,
+    cartReducer,
     [productsApi.reducerPath]: productsApi.reducer,
     
   },

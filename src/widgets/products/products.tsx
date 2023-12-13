@@ -1,19 +1,19 @@
 'use client'
 
-import { ProductCard } from "@/(entities)/productsCard";
-import { useGetAllProductsQuery } from "@/(entities)/productsCard/api/productApiSlice"
+import { ProductCard } from "@/entities/productsCard";
+import { useGetAllProductsQuery } from "@/entities/productsCard/api/productApiSlice"
 import { IProduct } from "./types";
-import { addFav } from "@/(features)/addToFavourite/addToFavourite";
-import { RootState } from "@/app/lib/redux/store";
+import { addFav } from "@/features/addToFavourite/addToFavourite";
+import { RootState } from "@/shared/lib/redux/store";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const Products = () => {
     const [page, setPage] = useState(1);
-    const {data,error,isLoading,isFetching } = useGetAllProductsQuery(10 * page);
+    const {data ,error,isLoading,isFetching } = useGetAllProductsQuery(12 * page, {refetchOnMountOrArgChange:true});
     const count = useSelector((state: RootState) => state);
-    const pages = [1,2,3,4,5];
-    //console.log(count)
+    const pages = [1,2,3,4,5,6];
+    //console.log(refetch())
     // console.log(currentData?.products);
     // const ProdCard = data.map((prod) => <ProductCard key={prod.id}/>)
   return (

@@ -22,13 +22,6 @@ interface Data{
     total: number;
 }
 
-interface ListResponse<T> {
-    page: number
-    per_page: number
-    total: number
-    total_pages: number
-    products: T[]
-  }
 
 
 export const productsApi = createApi({
@@ -36,7 +29,8 @@ export const productsApi = createApi({
     baseQuery: fetchBaseQuery({baseUrl:"https://dummyjson.com/"}),
     endpoints:(builder) => ({
         getAllProducts: builder.query<Data, number | void>({
-            query:(counts = 10) => `products?limit=12&skip=${counts}`,
+            query:(counts = 1) => `products?limit=12&skip=${counts}`,
+            keepUnusedDataFor: 5,
         }),
     }),
 });
