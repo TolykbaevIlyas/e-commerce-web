@@ -18,7 +18,7 @@ const ModalFav = ({isFavOpen,setIsFavOpen}:IModalFav) => {
             <div className="p-4">
                 <h4 className="text-center">Favourite:</h4>
 
-                {cards.Cards.map((fav)=> <FavorObj key={fav.id} id={fav.id} name={fav.title}/>)}
+                {cards.Cards.map((fav:any)=> <FavorObj key={fav.id} id={fav.id} name={fav.title}/>)}
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@ const ModalCart = ({isCartOpen,setIsCartOpen}:IModalFav) => {
             <div className="p-4">
                 <h4 className="text-center">Cart:</h4>
 
-                {CartEntity.Cart.map((fav)=> <Cart key={fav.id} id={fav.id} name={fav.title}/>)}
+                {CartEntity.Cart.map((fav:any)=> <Cart key={fav.id} id={fav.id} name={fav.title}/>)}
             </div>
         </div>
     </div>
