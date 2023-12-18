@@ -19,7 +19,6 @@ export interface IProduct {
     image: string;
     price: number;
     rate: number;
-    addFav: () => void;
     currentProd: any
     // data: Array<data>;
 }

@@ -1,4 +1,4 @@
 export interface IfavBtn{
-    setIsFavOpen: () => {}; 
-    isFavOpen: boolean;
+    setIsFavOpen?: () => {}; 
+    isFavOpen?: boolean;
 }

@@ -6,8 +6,8 @@ export const productsApi = createApi({
     reducerPath: "productsApi",
     baseQuery: fetchBaseQuery({baseUrl:"https://dummyjson.com/"}),
     endpoints:(builder) => ({
-        getAllProducts: builder.query<Data, number | void>({
-            query:(counts = 1) => `products?limit=12&skip=${counts}`,
+        getAllProducts: builder.query<Data, any | void>({
+            query:({page = 1, skip = 0}) => `products?limit=12&skip=${page * skip}`,
             keepUnusedDataFor: 5,
         }),
     }),
