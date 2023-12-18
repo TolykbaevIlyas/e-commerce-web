@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICart } from './types'
+import { ICart } from '../types'
 
 const Cart = ({id, name}: ICart) => {
   return (

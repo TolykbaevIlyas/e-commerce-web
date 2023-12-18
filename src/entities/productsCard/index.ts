@@ -1,2 +1,2 @@
-import ProductCard from "./ProductCard";
+import ProductCard from "./ui/ProductCard";
 export {ProductCard};

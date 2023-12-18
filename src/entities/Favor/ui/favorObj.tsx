@@ -1,4 +1,4 @@
-import { IFavor } from "./types"
+import { IFavor } from "../types"
 
 
 const FavorObj = ({id,name} :IFavor) => {

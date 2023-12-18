@@ -1,2 +1,2 @@
-import ModalCart from "./ModalCart";
+import ModalCart from "./ui/ModalCart";
 export {ModalCart};

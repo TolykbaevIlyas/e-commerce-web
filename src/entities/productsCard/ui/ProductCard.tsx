@@ -1,6 +1,6 @@
 'use client'
 import { useDispatch, useSelector } from 'react-redux'
-import {IProduct} from './types/index'
+import {IProduct} from '../types/index'
 import { addFav,delFav } from '@/features/addToFavourite/addToFavourite'
 import { RootState } from '@/shared/lib/redux/store'
 import { current } from '@reduxjs/toolkit'
@@ -29,7 +29,6 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
     // const favv = () => Fav.filter((obj:any) => (obj.id === id) === isFav);
     //console.log(favv());
     //Fav.filter((obj:any) => (obj.id === id) === isFav)
-
     //console.log(`IsFav ${isFav}  isExists ${isExist}   Fav.filter ${Fav.filter((obj:any) => (obj.id === id) === isFav)}`)
   return (
     <div className='p-5 w-96'>

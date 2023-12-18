@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { FaShoppingCart,FaHeart } from "react-icons/fa";
 import { IoLogInOutline } from "react-icons/io5";
-import { IHeader } from "./types";
+import { IHeader } from "../types";
 import { RootState } from "@/shared/lib/redux/store";
 import { useSelector } from "react-redux";
+import { Btn } from "@/shared/ui/button";
+import { FavButton } from "@/features/favButton";
+import { CartButton } from "@/features/cartButton";
 
-const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => {
-    const cardsFav = useSelector((state: RootState) => state.favReducer);
-    const cardsCart = useSelector((state: RootState) => state.cartReducer);
-    
+const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => { 
   return (
     <div className="flex justify-between px-40 py-10">
         <div>
@@ -28,8 +28,8 @@ const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => 
             </li>
         </div>
         <div className="flex">
-            <li className="list-none py-4 " onClick={()=> setIsFavOpen(!isFavOpen)}><a href="#"><FaHeart size="30px"/><p className="-my-11 z-20 text-orange-700 font-bold text-xl">{cardsFav.Cards.length}</p></a></li>
-            <li className="list-none py-4 px-2" onClick={()=> setIsCartOpen(!isCartOpen)}><a href="#"><FaShoppingCart size="30px"/><p className="-my-11 z-20 text-orange-700 font-bold text-xl">{cardsCart.Cart.length}</p></a></li>
+            <FavButton setIsFavOpen={setIsFavOpen} isFavOpen={isFavOpen} />
+            <CartButton setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen}/>
             <li className="list-none py-3"><a href="#"><IoLogInOutline size="40px"/></a></li>
         </div>
     </div>

@@ -1,6 +1,6 @@
 
 import HomePage from "@/pages/home";
-import Header from "@/widgets/header/Header";
+import Header from "@/widgets/header/ui/Header";
 import Products from "@/widgets/products/products";
 
 export default function Home() {

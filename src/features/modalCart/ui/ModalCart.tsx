@@ -1,10 +1,9 @@
 'use client'
 
-import FavorObj from "@/entities/Favor/favorObj"
 import { RootState } from "@/shared/lib/redux/store"
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import { IModalFav } from "./types"
+import { IModalFav } from "../types"
 import { Cart } from "@/entities/Cart"
 
 const ModalCart = ({isCartOpen,setIsCartOpen}:IModalFav) => {

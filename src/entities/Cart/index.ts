@@ -1,2 +1,2 @@
-import Cart from "./Cart";
+import Cart from "./ui/Cart";
 export {Cart};

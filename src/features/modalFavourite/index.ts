@@ -1,2 +1,2 @@
-import ModalFav from "./ModalFav";
+import ModalFav from "./ui/ModalFav";
 export {ModalFav}
