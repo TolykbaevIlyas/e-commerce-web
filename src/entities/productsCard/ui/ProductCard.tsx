@@ -53,7 +53,7 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
         <img src={image} alt="" className='h-60 min-h-fit m-auto'/>
       </div>
       <div className='text-center'>
-        <h4 className='pt-5 text-black'>{name}</h4>
+        <h4 className='pt-5 text-black font-bold text-xl'>{name}</h4>
         <p className='pt-5 w-80 h-20 overflow-hidden text-black'>{desc}</p>
       </div>
       <div className='pt-5 text-center'>
