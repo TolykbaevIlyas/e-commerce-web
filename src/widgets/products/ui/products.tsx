@@ -1,7 +1,7 @@
 'use client'
 
 import { ProductCard } from "@/entities/productsCard";
-import { useGetAllProductsQuery } from "@/entities/productsCard/api/productApiSlice"
+import { useGetAllProductsQuery,useUpdateCategoryProductsMutation } from "@/entities/productsCard/api/productApiSlice"
 import { IProduct } from "../types";
 import { addFav } from "@/features/addToFavourite/addToFavourite";
 import { RootState } from "@/shared/lib/redux/store";
@@ -14,7 +14,10 @@ const Products = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const skip = 12;
     const {data ,error,isLoading,isFetching,currentData } = useGetAllProductsQuery({page:page, skip:skip, search: searchTerm});
+    const [updateCategoryProducts, result] = useUpdateCategoryProductsMutation();
+    //updateCategoryProducts({category:"smartphones"})
     const count = useSelector((state: RootState) => state);
+    //console.log(count);
     const pagesCount = Math.round(currentData?.total / skip);
     let pages =[];
 
@@ -22,17 +25,7 @@ const Products = () => {
         pages.push(i);
     }
 
-    // const filter = (searchText,list)=>{
-    //   console.log(searchText)
-    //   if(!searchText){
-    //     return list;
-    //   }
-    //   return list.filter((prod) =>
-    //     prod.toLowerCase().includes(searchText.toLowerCase())  
-    //   )
-    // }
-
-    // console.log(filter(searchTerm,data?.products));
+    
 
 
   return (
@@ -46,6 +39,12 @@ const Products = () => {
             placeholder="Поиск"
             onChange={(e)=> setSearchTerm(e.target.value)}
             className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black" />
+            <div>
+              <button onClick={()=>updateCategoryProducts({category: "smartphones"})}>Update</button>
+              <button></button>
+              <button></button>
+              <button></button>
+            </div>
         </div>
 
         <h2 className="text-center text-lg uppercase pt-5">products</h2>

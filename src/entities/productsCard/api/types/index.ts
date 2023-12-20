@@ -17,5 +17,6 @@ export interface Data{
     products: Array<GetAllProd>;
     skip: number;
     total: number;
+    category?: string;
 }
 
