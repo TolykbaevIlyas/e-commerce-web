@@ -1,10 +1,11 @@
 'use client'
 import React, { useState } from 'react'
+import { ICategoryBtn } from '../types';
 
-const CategoryButton = ({name,type,updateCategoryProducts,setCategories}) => {
+const CategoryButton = ({name,type,updateCategoryProducts,setCategories}: ICategoryBtn) => {
     const [category, setCategory] = useState(false);
 
-    const CategoryHandle = (categoryName)=>{
+    const CategoryHandle = (categoryName:string)=>{
         updateCategoryProducts({category: categoryName});
         setCategory(!category);
         setCategories(!category)
