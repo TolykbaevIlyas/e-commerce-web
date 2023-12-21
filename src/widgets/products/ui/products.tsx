@@ -19,8 +19,17 @@ const Products = () => {
     const [updateCategoryProducts, result] = useUpdateCategoryProductsMutation();
     //updateCategoryProducts({category:"smartphones"})
     const count = useSelector((state: RootState) => state);
-    console.log(result);
-    const pagesCount = Math.round(currentData?.total / skip);
+    //console.log(result);
+
+    const CheckPages = ()=>{
+      if(category){
+        return Math.round(result.data?.total / skip);
+      }else{
+        return Math.round(currentData?.total / skip);
+      }
+    }
+    const pagesCount = CheckPages();
+    
     let pages =[];
     let categoryBtns= [
       {id: 1, name: "smartphones", type: "smartphones"},
@@ -32,10 +41,7 @@ const Products = () => {
         pages.push(i);
     }
 
-    // const CategoryHandle = (categoryName)=>{
-    //   updateCategoryProducts({category: categoryName});
-    //   setCategory(!category);
-    // }
+    
 
   return (
     <div className="p-4">
