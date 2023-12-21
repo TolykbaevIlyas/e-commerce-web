@@ -11,11 +11,11 @@ const CategoryButton = ({name,type,updateCategoryProducts,setCategories}) => {
       }
 
   return (
-  <>
+  <div className='pl-5'>
     {category === false 
     ? <button className="py-2 px-10 bg-orange-600 rounded-full" onClick={()=>CategoryHandle(`${type}`) }>{name}</button> 
     : <button className="py-2 px-10 bg-neutral-600 rounded-full" onClick={()=>CategoryHandle(`${type}`) }><p className="absolute pl-28">X</p> {name}</button>}
-  </>
+  </div>
   )
 }
 

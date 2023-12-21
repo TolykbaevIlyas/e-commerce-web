@@ -54,12 +54,12 @@ const Products = () => {
             placeholder="Поиск"
             onChange={(e)=> setSearchTerm(e.target.value)}
             className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black" />
-            <div>
+        </div>
+        <div className="flex justify-center pt-5">
               {/* <button className="py-2 px-10 bg-orange-600 rounded-full" onClick={()=>CategoryHandle(`${btns.type}`) }>{btns.name}</button> */}
               {categoryBtns.map((btns) => <CategoryButton key={btns.id} name={btns.name} type={btns.type} updateCategoryProducts={updateCategoryProducts} setCategories={setCategory}/> )}
               
             </div>
-        </div>
 
         <h2 className="text-center text-lg uppercase pt-5">products</h2>
         <div className="flex flex-wrap justify-around mt-16">
