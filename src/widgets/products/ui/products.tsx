@@ -7,26 +7,35 @@ import { addFav } from "@/features/addToFavourite/addToFavourite";
 import { RootState } from "@/shared/lib/redux/store";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { CategoryButton } from "@/features/categoryButton";
 
 
 const Products = () => {
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
+    const [category, setCategory] = useState(false);
     const skip = 12;
     const {data ,error,isLoading,isFetching,currentData } = useGetAllProductsQuery({page:page, skip:skip, search: searchTerm});
     const [updateCategoryProducts, result] = useUpdateCategoryProductsMutation();
     //updateCategoryProducts({category:"smartphones"})
     const count = useSelector((state: RootState) => state);
-    //console.log(count);
+    console.log(result);
     const pagesCount = Math.round(currentData?.total / skip);
     let pages =[];
+    let categoryBtns= [
+      {id: 1, name: "smartphones", type: "smartphones"},
+      {id: 2, name: "laptops", type: "laptops"},
+      {id: 3, name: "fragrances", type:"fragrances"}
+    ]
 
     for (let i=1; i <= pagesCount; i++){
         pages.push(i);
     }
 
-    
-
+    // const CategoryHandle = (categoryName)=>{
+    //   updateCategoryProducts({category: categoryName});
+    //   setCategory(!category);
+    // }
 
   return (
     <div className="p-4">
@@ -40,19 +49,20 @@ const Products = () => {
             onChange={(e)=> setSearchTerm(e.target.value)}
             className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black" />
             <div>
-              <button onClick={()=>updateCategoryProducts({category: "smartphones"})}>Update</button>
-              <button></button>
-              <button></button>
-              <button></button>
+              {/* <button className="py-2 px-10 bg-orange-600 rounded-full" onClick={()=>CategoryHandle(`${btns.type}`) }>{btns.name}</button> */}
+              {categoryBtns.map((btns) => <CategoryButton key={btns.id} name={btns.name} type={btns.type} updateCategoryProducts={updateCategoryProducts} setCategories={setCategory}/> )}
+              
             </div>
         </div>
 
         <h2 className="text-center text-lg uppercase pt-5">products</h2>
         <div className="flex flex-wrap justify-around mt-16">
-            {error ? (<>ERROR</>) 
+            {result.isError ? (<>ERROR</>) 
+            : result.isLoading ? (<>IS LOADING</>)
+            : category ? result.data?.products.map((prod:IProduct) => <ProductCard key={prod.id} id={prod.id} name={prod.title} desc={prod.description} image={prod.images[0]} price={prod.price} rate={prod.rating} currentProd={prod}/>) 
+            : error ? (<>ERROR</>) 
             : isLoading ? (<>IS LOADING</>)
             : data ? 
-            
             data.products.map((prod:IProduct) => <ProductCard key={prod.id} id={prod.id} name={prod.title} desc={prod.description} image={prod.images[0]} price={prod.price} rate={prod.rating} currentProd={prod}/>) 
             : null}
         </div>
