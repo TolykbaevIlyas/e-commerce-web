@@ -19,7 +19,7 @@ const Products = () => {
     const [updateCategoryProducts, result] = useUpdateCategoryProductsMutation();
     //updateCategoryProducts({category:"smartphones"})
     const count = useSelector((state: RootState) => state);
-    console.log(result);
+    //console.log(result);
 
     const CheckPages = ()=>{
       if(category){
