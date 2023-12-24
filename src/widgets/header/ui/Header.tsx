@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { Btn } from "@/shared/ui/button";
 import { FavButton } from "@/features/favButton";
 import { CartButton } from "@/features/cartButton";
+import { SwitchButton } from "@/features/switchTheme/Index";
 
 const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => { 
   return (
@@ -28,6 +29,7 @@ const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => 
             </li>
         </div>
         <div className="flex">
+            <SwitchButton/>
             <FavButton setIsFavOpen={setIsFavOpen} isFavOpen={isFavOpen} />
             <CartButton setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen}/>
             <li className="list-none py-3"><a href="#"><IoLogInOutline size="40px"/></a></li>
