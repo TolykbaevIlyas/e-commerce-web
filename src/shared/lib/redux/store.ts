@@ -1,3 +1,4 @@
+import switchTheme from '@/features/switchTheme/lib/Slice/switchTheme';
 import favReducer from '@/features/addToFavourite/addToFavourite'
 import cartReducer from '@/features/addToCart/addToCart'
 import productsReducer from '@/entities/productsCard/api/productApiSlice';
@@ -10,6 +11,7 @@ export const store = configureStore ({
   reducer:{
     favReducer,
     cartReducer,
+    switchTheme,
     [productsApi.reducerPath]: productsApi.reducer,
     
   },

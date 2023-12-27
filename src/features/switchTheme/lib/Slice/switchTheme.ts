@@ -6,9 +6,11 @@ import { IThemeConfig } from './types'
 
 
 const initialState:IThemeConfig = {
-    textColor: 'white',
-    backgroundColor: 'black',
-    buttonColor:
+    status: false,
+    textColor: 'text-white',
+    backgroundColor: 'bg-black',
+    buttonColor: 'text-orange-700',
+    iconColor: 'white'
 }
 
 export const switchTheme = createSlice({
@@ -16,22 +18,33 @@ export const switchTheme = createSlice({
   initialState,
   reducers: {
     ChangeTheme: (state:any,action:PayloadAction<any>)=>{
-        //state.FavouriteCard.Card.isFavou = !state.FavouriteCard.Card.isFavou;
-        return{
-            textColor: action.textColor,
-            
+        if(action.payload){
+          return {
+            textColor: 'text-white',
+            backgroundColor: 'bg-black',
+            buttonColor: 'text-orange-700',
+            iconColor: 'white'
+          }
         }
+          else{
+            return{
+              textColor: 'text-black',
+              backgroundColor: 'bg-white',
+              buttonColor: 'text-orange-700',
+              iconColor: 'black'
+              
+            }
+          }
+        }
+
     },
     addTheme:(state,action:PayloadAction<any>)=>{
-        //state.Cards[action.payload.id] = Object.keys(state.Cards).filter((obj) => obj[action.payload.id] !== action.payload.id && obj.size !== action.payload.size)
-        //Object.keys(state.Cards).filter((obj) => console.log(obj))
-        // return state.Cards.filter(c => c[action.payload.id] !== action.payload.id)
-        // state.Cards[action.payload.id] = null;
+
     }
   },
-})
+)
 
 // Action creators are generated for each case reducer function
-export const {ChangeTheme,addTheme} = addToCart.actions
+export const {ChangeTheme,addTheme} = switchTheme.actions
 
-export default addToCart.reducer
+export default switchTheme.reducer

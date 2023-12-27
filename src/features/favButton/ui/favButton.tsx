@@ -7,11 +7,12 @@ import { ProductCard } from '@/entities/productsCard';
 
 const FavButton = ({setIsFavOpen, isFavOpen}:IfavBtn) => {
     const cardsFav = useSelector((state: RootState) => state.favReducer);
+    const Theme = useSelector((state: RootState) => state.switchTheme);
 
   return (
     <li className="list-none py-4" onClick={()=> setIsFavOpen(!isFavOpen)}>
       <a href="#">
-        <FaHeart size="30px"/>
+        <FaHeart size="30px" color={`${Theme.iconColor}`}/>
         <p className="-my-11 z-20 text-orange-700 font-bold text-xl">
           {cardsFav.Cards.length}
         </p>
