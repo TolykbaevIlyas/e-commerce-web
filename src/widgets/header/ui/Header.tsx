@@ -34,7 +34,7 @@ const Header = ({isFavOpen,setIsFavOpen,isCartOpen, setIsCartOpen}: IHeader) => 
             <SwitchButton/>
             <FavButton setIsFavOpen={setIsFavOpen} isFavOpen={isFavOpen} />
             <CartButton setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen}/>
-            <li className="list-none py-3"><a href="#"><IoLogInOutline size="40px"/></a></li>
+            <li className="list-none py-3"><a href="#"><IoLogInOutline size="40px" color={`${Theme.iconColor}`}/></a></li>
         </div>
     </div>
   )

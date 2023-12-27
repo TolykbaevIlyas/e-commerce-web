@@ -9,8 +9,11 @@ const initialState:IThemeConfig = {
     status: false,
     textColor: 'text-white',
     backgroundColor: 'bg-black',
-    buttonColor: 'text-orange-700',
-    iconColor: 'white'
+    buttonColor: 'bg-orange-600',
+    disabledButtonColor: 'bg-slate-600',
+    iconColor: 'white',
+    CardsColor: 'bg-slate-100',
+    CardsTextColor: 'text-black'
 }
 
 export const switchTheme = createSlice({
@@ -22,16 +25,22 @@ export const switchTheme = createSlice({
           return {
             textColor: 'text-white',
             backgroundColor: 'bg-black',
-            buttonColor: 'text-orange-700',
-            iconColor: 'white'
+            buttonColor: 'bg-orange-600',
+            disabledButtonColor: 'bg-slate-600',
+            iconColor: 'white',
+            CardsColor: 'bg-slate-100',
+            CardsTextColor: 'text-black'
           }
         }
           else{
             return{
               textColor: 'text-black',
               backgroundColor: 'bg-white',
-              buttonColor: 'text-orange-700',
-              iconColor: 'black'
+              buttonColor: 'bg-orange-600',
+              disabledButtonColor: 'bg-slate-600',
+              iconColor: 'black',
+              CardsColor: 'bg-black',
+              CardsTextColor: 'text-white'
               
             }
           }

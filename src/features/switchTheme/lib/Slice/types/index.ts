@@ -3,5 +3,8 @@ export interface IThemeConfig{
     textColor: string;
     backgroundColor: string;
     buttonColor: string;
+    disabledButtonColor:string;
     iconColor: string;
+    CardsColor: string;
+    CardsTextColor: string;
 }

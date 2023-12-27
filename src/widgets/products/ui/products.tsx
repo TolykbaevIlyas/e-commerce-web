@@ -11,6 +11,7 @@ import { CategoryButton } from "@/features/categoryButton";
 
 
 const Products = () => {
+    const Theme = useSelector((state: RootState) => state.switchTheme);
     const [page, setPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
     const [category, setCategory] = useState(false);
@@ -53,7 +54,7 @@ const Products = () => {
             autoComplete="off"
             placeholder="Поиск"
             onChange={(e)=> setSearchTerm(e.target.value)}
-            className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black" />
+            className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black border-black border-2" />
         </div>
         <div className="flex justify-center pt-5">
             {categoryBtns.map((btns) => <CategoryButton key={btns.id} name={btns.name} type={btns.type} updateCategoryProducts={updateCategoryProducts} setCategories={setCategory}/> )}
@@ -70,7 +71,7 @@ const Products = () => {
             data.products.map((prod:IProduct) => <ProductCard key={prod.id} id={prod.id} name={prod.title} desc={prod.description} image={prod.images[0]} price={prod.price} rate={prod.rating} currentProd={prod}/>) 
             : null}
         </div>
-        <div className="text-center flex justify-center">
+        <div className={`text-center flex justify-center ${Theme.textColor}`}>
           <button className={page == 1 ? `p-4 text-gray-700 duration-100` : `p-4 hover:text-gray-500 duration-100`} 
                   onClick={() => setPage(page - 1)} 
                   disabled={page === 1}>
@@ -78,7 +79,7 @@ const Products = () => {
                   Previous
           </button>
 
-          {<div className="p-4 text-center">
+          {<div className={`p-4 text-center  ${Theme.textColor}`}>
             {pages.map(
               (pageL,index) => 
                 <span key={index} 
@@ -88,7 +89,7 @@ const Products = () => {
                 </span> )}
           </div>}
           
-          <button className={page == pagesCount ? `p-4 text-gray-700 duration-100` : `p-4 hover:text-gray-500 duration-100`}
+          <button className={page == pagesCount ? `p-4 text-gray-700 duration-100` : `p-4 hover:text-gray-500 duration-100 ${Theme.textColor}`}
                   onClick={() => setPage(page + 1)}
                   disabled={page === pagesCount} >
                   

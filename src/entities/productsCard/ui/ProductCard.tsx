@@ -15,6 +15,7 @@ import { useGetAllProductsQuery } from '../api/productApiSlice'
 const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
 
   const dispatch = useDispatch()
+    const Theme = useSelector((state: RootState) => state.switchTheme);
     const Fav = useSelector((state: RootState) => state.favReducer);
     const Cart = useSelector((state: RootState) => state.cartReducer);
     const [isFav, setisFav] = useState(false);
@@ -40,8 +41,8 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
 
   return (
     <div 
-      className=' mb-10 p-2 w-96 bg-slate-100 rounded-lg'>
-      <div className='p-2 bg-white'>
+      className={` mb-10 p-2 w-96 ${Theme.CardsColor} rounded-lg border-black border-2`}>
+      <div className='p-2 bg-white '>
         {isFav || CheckFav()? 
           <button onClick={() => dispatch(delFav(currentProd), setisFav(false))}>
               <FaHeart size="30px" color="red"/>
@@ -53,27 +54,27 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
         <img src={image} alt="" className='h-60 min-h-fit m-auto'/>
       </div>
       <div className='text-center'>
-        <h4 className='pt-5 text-black font-bold text-xl'>{name}</h4>
-        <p className='pt-5 w-80 h-20 overflow-hidden text-black'>{desc}</p>
+        <h4 className={`pt-5 ${Theme.CardsTextColor} font-bold text-xl`}>{name}</h4>
+        <p className={`pt-5 w-80 h-20 overflow-hidden ${Theme.CardsTextColor}`}>{desc}</p>
       </div>
       <div className='pt-5 text-center'>
         <div className='flex justify-center'>
-          <p className='text-black'>price:</p>
-          <p className='pl-5 text-black'>{price}</p>
-          <p className='text-black'>$</p>
+          <p className={`${Theme.CardsTextColor}`}>price:</p>
+          <p className={`pl-5 ${Theme.CardsTextColor}`}>{price}</p>
+          <p className={`${Theme.CardsTextColor}`}>$</p>
         </div>
         <div className='flex justify-center'>
-          <p className='text-black'>rating:</p>
-          <p className='pl-5 text-black'>{rate}</p>
+          <p className={`${Theme.CardsTextColor}`}>rating:</p>
+          <p className={`pl-5 ${Theme.CardsTextColor}`}>{rate}</p>
         </div>
       </div>
       <div className='text-center my-2'>
         {isCart || CheckCart()? 
-          <button className="py-2 px-10 rounded-full bg-slate-600" onClick={() => dispatch(delCart(currentProd), setisCart(false))}>
-            Delete from Cart
+          <button className={`py-2 px-10 rounded-full ${Theme.disabledButtonColor}`} onClick={() => dispatch(delCart(currentProd), setisCart(false))}>
+            <p className={`${Theme.CardsTextColor}`}>Delete from Cart</p>
           </button> : 
-          <button className="py-2 px-10 bg-orange-600 rounded-full" onClick={() => dispatch(addCart(currentProd),setisCart(true))}>
-            Add to Cart
+          <button className={`py-2 px-10 rounded-full ${Theme.buttonColor}`} onClick={() => dispatch(addCart(currentProd),setisCart(true))}>
+            <p className={`${Theme.CardsTextColor}`}>Add to Cart</p>
           </button>}
       </div>
       
