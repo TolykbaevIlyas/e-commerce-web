@@ -54,7 +54,7 @@ const Products = () => {
             autoComplete="off"
             placeholder="Поиск"
             onChange={(e)=> setSearchTerm(e.target.value)}
-            className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black border-black border-2" />
+            className="text-center text-lg items-center m-auto w-96 p-2 rounded-lg text-black shadow-xl" />
         </div>
         <div className="flex justify-center pt-5">
             {categoryBtns.map((btns) => <CategoryButton key={btns.id} name={btns.name} type={btns.type} updateCategoryProducts={updateCategoryProducts} setCategories={setCategory}/> )}

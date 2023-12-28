@@ -6,7 +6,7 @@ import { useState } from "react";
 const SwitchButton = () => {
   const Theme = useSelector((state: RootState) => state.switchTheme);
   const dispatch = useDispatch()
-  const [changeTheme, setChangeTheme] = useState(true);
+  const [changeTheme, setChangeTheme] = useState(false);
   console.log(changeTheme);
 
   return (

@@ -12,17 +12,11 @@ const ModalCart = ({isCartOpen,setIsCartOpen}:IModalFav) => {
     let currentPrice = 0;
     for(let i = 0; i < CartEntity.Cart.length; i++) {
         currentPrice = currentPrice + CartEntity.Cart[i].price;
-
-        //console.log(i)
     }
-    //setPrice(currentPrice);
-    //console.log(CartEntity)
-    //CartEntity.Cart.filter((cartPrice) => console.log(cartPrice.price))
-    //CartEntity.Cart.filter((cartPrice) => setPrice(price + cartPrice.price))
 
   return (
     <div className="">
-        <div className="absolute top-15 right-10 h-96 w-96 h-vw bg-white  z-10 rounded-3xl overflow-auto">
+        <div className="absolute top-15 right-10 h-96 w-96 h-vw bg-white  z-10 rounded-3xl overflow-auto shadow-xl">
             <div className="pt-4 pl-5 px-2">
                 <button className="top-0 right-0 pt-5 text-black" onClick={()=> setIsCartOpen(!isCartOpen)}>Close</button>
             </div>
@@ -30,7 +24,9 @@ const ModalCart = ({isCartOpen,setIsCartOpen}:IModalFav) => {
                 <h4 className="text-center text-black font-bold">Cart:</h4>
                 {CartEntity.Cart.map((fav:any)=> <Cart key={fav.id} id={fav.id} name={fav.title} price={fav.price} image={fav.images[0]}/>)}
             </div>
-            {currentPrice}
+            <p>
+                TotalCount: {currentPrice} $
+            </p>
         </div>
     </div>
   )

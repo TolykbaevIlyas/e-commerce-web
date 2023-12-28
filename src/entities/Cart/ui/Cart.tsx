@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { ICart } from '../types'
 
 const Cart = ({id, name, price,image}: ICart) => {
-  const[count, setCount] = useState(0);
+  const[count, setCount] = useState(1);
   const[prices, setPrices] = useState(price);
 
   const handleIncrement = () => {

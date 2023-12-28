@@ -28,7 +28,7 @@ export const switchTheme = createSlice({
             buttonColor: 'bg-orange-600',
             disabledButtonColor: 'bg-slate-600',
             iconColor: 'white',
-            CardsColor: 'bg-slate-100',
+            CardsColor: 'bg-white',
             CardsTextColor: 'text-black'
           }
         }
@@ -39,8 +39,8 @@ export const switchTheme = createSlice({
               buttonColor: 'bg-orange-600',
               disabledButtonColor: 'bg-slate-600',
               iconColor: 'black',
-              CardsColor: 'bg-black',
-              CardsTextColor: 'text-white'
+              CardsColor: 'bg-white',
+              CardsTextColor: 'text-black'
               
             }
           }

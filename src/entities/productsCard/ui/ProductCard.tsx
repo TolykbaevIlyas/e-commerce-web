@@ -41,7 +41,7 @@ const ProductCard = ({id,name,image,desc,price,rate,currentProd}:IProduct) => {
 
   return (
     <div 
-      className={` mb-10 p-2 w-96 ${Theme.CardsColor} rounded-lg border-black border-2`}>
+      className={` mb-10 p-2 w-96 ${Theme.CardsColor} rounded-lg shadow-lg`}>
       <div className='p-2 bg-white '>
         {isFav || CheckFav()? 
           <button onClick={() => dispatch(delFav(currentProd), setisFav(false))}>
