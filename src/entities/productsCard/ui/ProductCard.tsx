@@ -3,12 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import {IProduct} from '../types/index'
 import { addFav,delFav } from '@/features/addToFavourite/addToFavourite'
 import { RootState } from '@/shared/lib/redux/store'
-import { current } from '@reduxjs/toolkit'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import {addCart,delCart} from '@/features/addToCart/addToCart'
-import { FaShoppingCart,FaHeart,FaRegHeart } from "react-icons/fa";
-import { FavButton } from '@/features/favButton'
-import { useGetAllProductsQuery } from '../api/productApiSlice'
+import { FaHeart,FaRegHeart } from "react-icons/fa";
+
 
 
 
